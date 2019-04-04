@@ -1,0 +1,13 @@
+input[type="text"] {
+    color : blue;
+}
+input[type="email"] {
+    color : blue;
+}
+input[type="submit"] {
+    font-weight : bold;
+}
+
+fieldset{
+    background-color: darkgrey;
+}
