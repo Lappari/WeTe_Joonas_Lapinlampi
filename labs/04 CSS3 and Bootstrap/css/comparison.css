@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, Verdana, sans-serif;
+
+}
+p{
+    margin-left: auto; margin-right: auto;
+ }
+caption{
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: bold;
+    border: solid 1px black;
+    border-bottom-color: darkgrey;
+}
+
+table{
+    border: solid 1px black;
+    border-top-color: darkgrey;
+    row-gap: 0;
+    border-collapse: collapse;
+}
+
+td{
+    background-color: white;
+
+}
+
+tr#ROW1{
+    background-color:red; color:white;
+
+}
+
+tr#ROW2{
+    background-color:white;
+
+}
+
+tr#ROW3{
+    background-color: ghostwhite;
+
+}
+
+tr#ROW4{
+    background-color:white;
+
+}
+
+.border{
+    border-right: darkgrey solid 1px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
