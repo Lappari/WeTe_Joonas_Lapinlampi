@@ -10,8 +10,19 @@ function process() {
     var okay = true;
     
     // Get form references:
+    var fullname = document.getElementById('fullname');
     var email = document.getElementById('email');
     var comments = document.getElementById('comments');
+
+    // Validate the name address:
+    if (!fullname || !fullname.value
+        || (fullname.value.length < 3)
+        || (fullname.value.indexOf(' ') == -1)
+        || (fullname.value.length>100)){
+        okay = false;
+        alert('Please enter a valid name');
+    }
+
     // Validate the email address:
     if (!email || !email.value 
     || (email.value.length < 6) 
@@ -50,6 +61,7 @@ function process() {
         message = "Form not submitted";
     }
     console.log(message);
+    console.log("Full name: " + fullname.value);
     console.log("Email: " + email.value);
     console.log("Comments: " + comments.value);
     alert(message);
