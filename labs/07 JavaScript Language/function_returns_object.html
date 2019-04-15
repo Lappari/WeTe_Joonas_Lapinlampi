@@ -4,6 +4,23 @@
   <meta charset="utf-8">
   <title>Object-o-matic</title>
   <script>
+
+    function makeEngine(){
+      var cylinders = ["3-Cylinders","4-Cylinders","5-Cylinders","6-Cylinders","8-Cylinders","12-Cylinders"];
+      var fuelType = ["diesel","petrol","electric"];
+      var torques = ["low","medium","high"];
+
+      var rand1 = Math.floor(Math.random() * cylinders.length);
+      var rand2 = Math.floor(Math.random() * fuelType.length);
+      var rand3 = Math.floor(Math.random() * torques.length);
+
+      var engine = {
+        cylinder: cylinders[rand1],
+        fuel: fuelType[rand2],
+        torque: torques[rand3]
+      }
+      return engine;
+    }
 	function makeCar() {
 		var makes = ["Chevy", "GM", "Fiat", "Webville Motors", "Tucker"];
 		var models = ["Cadillac", "500", "Bel-Air", "Taxi", "Torpedo"];
@@ -18,6 +35,8 @@
 		var rand5 = Math.floor(Math.random() * 5);
 		var rand6 = Math.floor(Math.random() * 2);
 
+		var engine = makeEngine();
+
 		var car = {
 			make: makes[rand1],
 			model: models[rand2],
@@ -25,13 +44,15 @@
 			color: colors[rand4],
 			passengers: rand5,
 			convertible: convertible[rand6],
-			mileage: 0
+			mileage: 0,
+            engine: engine
 		};
 		return car;
 	}
 
 	function displayCar(car) {
 		console.log("Your new car is a " + car.year + " " + car.make + " " + car.model);
+        console.log("Your new car's engine torque is " + car.engine.torque + ", it uses " + car.engine.fuel + " as fuel and has " + car.engine.cylinder);
 	}
 
 	var carToSell = makeCar();

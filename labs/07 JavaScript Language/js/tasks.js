@@ -5,6 +5,29 @@
 var tasks = []; 
 
 // Function called when the form is submitted.
+
+function removeTask() {
+    var dummy_array = [];
+    var message ='';
+    for (let i = 0; i < tasks.length; i++) {
+        if (dummy_array.indexOf(tasks[i]) == -1) {
+            dummy_array.push(tasks[i])
+        }
+    }
+    if(dummy_array.length != tasks.length){
+        tasks = dummy_array;
+    }
+
+    message = '<h2>To-Do</h2><ol>';
+    for (var i = 0, count = tasks.length; i < count; i++) {
+        message += '<li>' + tasks[i] + '</li>';
+    }
+    message += '</ol>';
+    output.innerHTML = message;
+    //return false;
+
+}
+
 // Function adds a task to the global array.
 function addTask() {
     'use strict';
