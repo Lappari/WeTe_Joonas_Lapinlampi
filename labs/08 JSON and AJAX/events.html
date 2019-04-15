@@ -32,6 +32,25 @@ function handleClick(e) {
   </script>
 </head>
 <body>
+
+<script>
+  document.getElementById("clickme").addEventListener("mouseover",clickmouse);
+  document.getElementById("demo").addEventListener("mouseover",testText);
+  function testText() {
+    alert("You are hovering over Test text");
+  }
+  function clickmouse() {
+    alert("You are hovering over click me");
+  }
+</script>
+
+<div onmouseover="testText()">
+  <p><span id="demo">Test text</span></p>
+</div>
+
+<div onmouseover="clickmouse()">
 <span id="clickme">Click me!</span>
+</div>
+
 </body>
 </html>
