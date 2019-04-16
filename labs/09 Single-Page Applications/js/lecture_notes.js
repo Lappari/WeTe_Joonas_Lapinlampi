@@ -13,17 +13,32 @@ document.querySelector('#addPage button').onclick = function() {
 	console.log('add note');
 	var title = document.querySelector('#addPage input').value;
 	var note = document.querySelector('#addPage textarea').value;
+	var add = {title: title, note: note};
+	if (title.length != 0) {
+		notes.push(add);
+		document.querySelector('#addPage input').value = '';
+		document.querySelector('#addPage textarea').value = '';
+	} else {
+		alert("Give title!");
+	}
+
 };
 
 /*
  * handles navigation between the add and edit 'screens'
- */ 
+ */
 document.querySelector('nav > ul > li:nth-child(1)').onclick = function() {
 	console.log('first link clicked');
+	document.getElementById('editPage').style.display = 'none';
+	document.getElementById('addPage').style.display = 'block';
+	updateNote();
 };
 
 document.querySelector('nav > ul > li:nth-child(2)').onclick = function() {
 	console.log('second link clicked');
+	document.getElementById('editPage').style.display = 'block';
+	document.getElementById('addPage').style.display = 'none';
+	loadList();
 };
 
 
@@ -33,9 +48,12 @@ function updateNote() {
 	var note = document.querySelector('#editPage textarea').value;
 	var id = parseInt(document.querySelector('#editPage p').innerHTML, 10);
 	console.log(id);
-	var updated = {title: title, note: note};
-	console.log(updated);
-	notes[id] = {title: title, note: note};
+	if (title.length != 0) {
+		var updated = {title: title, note: note};
+		console.log(updated);
+		notes[id] = {title: title, note: note};
+	}
+
 }
 
 function display(element) {
