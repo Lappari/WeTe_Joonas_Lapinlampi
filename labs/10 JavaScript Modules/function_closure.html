@@ -30,6 +30,7 @@ function handleClick() {
 //
 // The version with the closure.
 //
+/*
 window.onload = function() {
 	var count = 0; 
 	var message = "You clicked me ";
@@ -41,12 +42,44 @@ window.onload = function() {
 		div.innerHTML = message + count + " times!";
 	};
 };
+*/
+window.onload = function() {
+	var speed = 0;
+
+	var divs = document.getElementById("speed");
+	var buttonplus = document.getElementById("plus");
+	var buttonnolla = document.getElementById("nolla");
+	var buttonmiinus = document.getElementById("miinus");
+
+	buttonplus.onclick = function(){
+		speed++;
+		Paivita();
+	};
+	buttonnolla.onclick = function(){
+		speed = 0;
+		Paivita();
+	};
+
+	buttonmiinus.onclick = function(){
+		speed--;
+		Paivita();
+	};
+
+	function Paivita() {
+			divs.innerHTML = "Toiston nopeus on " + speed;
+	};
+
+};
 
 </script> 
 </head> 
 <body>
 	<button id="clickme">Click me!</button>
+	<button id="miinus">-</button>
+	<button id="nolla">0</button>
+	<button id="plus">+</button>
 	<div id="message"></div>
+	<div id="speed"></div>
 </body>
 </html>
 
