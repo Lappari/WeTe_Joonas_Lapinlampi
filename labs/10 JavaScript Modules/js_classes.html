@@ -24,6 +24,7 @@ function Coffee(roast, ounces) {
 			case "medium":
 			case "large":
 				msg = "You've ordered a " + this.getSize() + " " + this.roast + " coffee.";
+                sip();
 				break;
 			default:
 				msg = "We don't have a " + this.roast + " in that size!";
@@ -31,6 +32,47 @@ function Coffee(roast, ounces) {
 		}
 		return msg;
 	};
+}
+
+function Tea(type, ounces) {
+    this.type = type;
+    this.ounces = ounces;
+    this.getSize = function() {
+        if (this.ounces === 8) {
+            return "small";
+        } else if (this.ounces === 12) {
+            return "medium";
+        } else if (this.ounces === 16) {
+            return "large";
+        }
+    };
+    this.getSteepTime = function() {
+        if (this.type === "Green") {
+            return "3min";
+        } else if (this.type === "Black") {
+            return "3-5min";
+        } else if (this.type === "Tisane") {
+            return "5-7min";
+        }
+    };
+    this.order = function() {
+        var msg;
+        switch (this.getSize()) {
+            case "small":
+            case "medium":
+            case "large":
+                msg = "You've ordered a " + this.getSize() + " " + this.type + " tea and steeptime is " + this.getSteepTime()+"\n"+sip();
+                break;
+            default:
+                msg = "We don't have a " + this.type + " in that size!";
+                break;
+        }
+        return msg;
+    };
+}
+
+function sip() {
+    return "Hmm, tasty";
 }
 
 var coffee = new Coffee("House Blend", 12);
@@ -41,6 +83,15 @@ console.log(darkRoast.order());
 
 var specialBlend = new Coffee("Special Blend", 200);
 console.log(specialBlend.order());
+
+var greenTea = new Tea("Green", 8);
+console.log(greenTea.order());
+
+var blackTea = new Tea("Black", 12);
+console.log(blackTea.order());
+
+var tisaneTea = new Tea("Tisane", 251);
+console.log(tisaneTea.order());
 
 </script>
 </head>

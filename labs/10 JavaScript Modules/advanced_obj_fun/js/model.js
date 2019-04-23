@@ -9,6 +9,9 @@
 	 */
 	function Model(storage) {
 		this.storage = storage;
+
+		var p = $.id("test");
+		p.innerHTML = "This was added with the $ object";
 	}
 
 	/**
